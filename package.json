@@ -2,6 +2,7 @@
   "name": "rtk-github-issues-example-01-plain-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kylepeeler.github.io/rtk-github-app",
   "dependencies": {
     "@types/classnames": "^2.2.10",
     "@types/jest": "25.2.3",
@@ -13,6 +14,7 @@
     "@types/webpack-env": "^1.15.2",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "gh-pages": "^3.0.0",
     "parse-link-header": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -25,7 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -b master",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*\""
