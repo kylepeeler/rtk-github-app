@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/rtk-github-app/precache-manifest.b2514fb574cea6f87fb1ae8ea12c5c9a.js"
+  "/rtk-github-app/precache-manifest.0994dab4d37dcdf34ea4f514bedd88b4.js"
 );
 
 self.addEventListener('message', (event) => {
