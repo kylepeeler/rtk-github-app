@@ -1,5 +1,7 @@
 # React Toolkit Example - Github API
 
+![gh-pages-deploy](https://github.com/kylepeeler/rtk-github-app/workflows/gh-pages-deploy/badge.svg)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
