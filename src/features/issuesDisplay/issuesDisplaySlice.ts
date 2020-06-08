@@ -21,8 +21,8 @@ type CurrentDisplayState = {
   CurrentRepo;
 
 let initialState: CurrentDisplayState = {
-  org: 'pactsafe',
-  repo: 'pactsafe-react-sdk',
+  org: 'rails',
+  repo: 'rails',
   page: 1,
   displayType: 'issues',
   issueId: null,
@@ -44,14 +44,14 @@ const issuesDisplaySlice = createSlice({
       const { displayType, issueId = null } = action.payload;
       state.displayType = displayType;
       state.issueId = issueId;
-    }
-  }
+    },
+  },
 });
 
 export const {
   displayRepo,
   setCurrentPage,
-  setCurrentDisplayType
+  setCurrentDisplayType,
 } = issuesDisplaySlice.actions;
 
 export default issuesDisplaySlice.reducer;
