@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/rtk-github-app/static/css/main.d1cda262.chunk.css",
+    "main.js": "/rtk-github-app/static/js/main.9c448242.chunk.js",
+    "main.js.map": "/rtk-github-app/static/js/main.9c448242.chunk.js.map",
+    "runtime-main.js": "/rtk-github-app/static/js/runtime-main.0717b83d.js",
+    "runtime-main.js.map": "/rtk-github-app/static/js/runtime-main.0717b83d.js.map",
+    "static/js/2.ef9bb0a4.chunk.js": "/rtk-github-app/static/js/2.ef9bb0a4.chunk.js",
+    "static/js/2.ef9bb0a4.chunk.js.map": "/rtk-github-app/static/js/2.ef9bb0a4.chunk.js.map",
+    "index.html": "/rtk-github-app/index.html",
+    "precache-manifest.b2514fb574cea6f87fb1ae8ea12c5c9a.js": "/rtk-github-app/precache-manifest.b2514fb574cea6f87fb1ae8ea12c5c9a.js",
+    "service-worker.js": "/rtk-github-app/service-worker.js",
+    "static/css/main.d1cda262.chunk.css.map": "/rtk-github-app/static/css/main.d1cda262.chunk.css.map",
+    "static/js/2.ef9bb0a4.chunk.js.LICENSE.txt": "/rtk-github-app/static/js/2.ef9bb0a4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0717b83d.js",
+    "static/js/2.ef9bb0a4.chunk.js",
+    "static/css/main.d1cda262.chunk.css",
+    "static/js/main.9c448242.chunk.js"
+  ]
+}
