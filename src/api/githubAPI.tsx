@@ -80,7 +80,7 @@ export async function getIssues(
   const url = `https://api.github.com/repos/${org}/${repo}/issues?per_page=25&page=${page}`;
 
   try {
-    const issuesResponse = await axios.get<Issue[]>(url);
+    const issuesResponse = await axios.get<Issue[]>(url, getConfig());
     let pageCount = 0;
     const pageLinks = parseLink(issuesResponse.headers.link);
 
