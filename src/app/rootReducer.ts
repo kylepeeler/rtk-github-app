@@ -2,7 +2,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import issuesDisplayReducer from 'features/issuesDisplay/issuesDisplaySlice';
 
 const rootReducer = combineReducers({
-  issuesDisplays: issuesDisplayReducer
+  issuesDisplay: issuesDisplayReducer
 }); 
 
 export type RootState = ReturnType<typeof rootReducer>;

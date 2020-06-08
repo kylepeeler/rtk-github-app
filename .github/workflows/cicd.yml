@@ -14,8 +14,8 @@ jobs:
   #     - run: npm run build --if-present
   #     - run: npm test
   build:
-    env:
-      REACT_APP_GH_API_TOKEN: ${{secrets.REACT_APP_GH_API_TOKEN}}
+    # env:
+      # REACT_APP_GH_API_TOKEN: ${{secrets.REACT_APP_GH_API_TOKEN}}
     runs-on: 'ubuntu-latest'
     steps:
       - name: Checkout 🛎️
