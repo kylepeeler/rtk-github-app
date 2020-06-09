@@ -1,76 +1,69 @@
-import React, { useState, useEffect } from 'react'
-import ReactMarkdown from 'react-markdown'
-import classnames from 'classnames'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import ReactMarkdown from 'react-markdown';
+import classnames from 'classnames';
 
-import { insertMentionLinks } from 'utils/stringUtils'
-import { getIssue, getComments, Issue, Comment } from 'api/githubAPI'
-import { IssueLabels } from 'components/IssueLabels'
+import { insertMentionLinks } from 'utils/stringUtils';
+import { IssueLabels } from 'components/IssueLabels';
+import { fetchIssue } from 'features/issuesList/issuesSlice';
+import { fetchComments } from 'features/issueDetails/commentsSlice';
 
-import { IssueMeta } from './IssueMeta'
-import { IssueComments } from './IssueComments'
+import { IssueMeta } from './IssueMeta';
+import { IssueComments } from './IssueComments';
 
-import styles from './IssueDetailsPage.module.css'
-import './IssueDetailsPage.css'
+import styles from './IssueDetailsPage.module.css';
+import './IssueDetailsPage.css';
+import { RootState } from 'app/rootReducer';
 
 interface IDProps {
-  org: string
-  repo: string
-  issueId: number
-  showIssuesList: () => void
+  org: string;
+  repo: string;
+  issueId: number;
+  showIssuesList: () => void;
 }
 
 export const IssueDetailsPage = ({
   org,
   repo,
   issueId,
-  showIssuesList
+  showIssuesList,
 }: IDProps) => {
-  const [issue, setIssue] = useState<Issue | null>(null)
-  const [comments, setComments] = useState<Comment[]>([])
-  const [commentsError, setCommentsError] = useState<Error | null>(null)
+  const dispatch = useDispatch();
+  const issue = useSelector(
+    (state: RootState) => state.issues.issuesByNumber[issueId]
+  );
+  const { commentsLoading, commentsError, comments } = useSelector(
+    (state: RootState) => {
+      return {
+        commentsLoading: state.comments.loading,
+        commentsError: state.comments.error,
+        comments: state.comments.commentsByIssue[issueId],
+      };
+    },
+    shallowEqual
+  );
 
   useEffect(() => {
-    async function fetchIssue() {
-      try {
-        setCommentsError(null)
-        const issue = await getIssue(org, repo, issueId)
-        setIssue(issue)
-      } catch (err) {
-        setCommentsError(err)
-      }
+    if (!issue) {
+      dispatch(fetchIssue(org, repo, issueId));
     }
-
-    fetchIssue()
-  }, [org, repo, issueId])
+    // Since we may have the issue already, make sure we scroll to the top
+    window.scrollTo({ top: 0 });
+  }, [org, repo, issueId, dispatch, issue]);
 
   useEffect(() => {
-    async function fetchComments() {
-      if (issue !== null) {
-        const comments = await getComments(issue.comments_url)
-        setComments(comments)
-      }
+    if (issue) {
+      dispatch(fetchComments(issue));
     }
+  }, [dispatch, issue]);
 
-    fetchComments()
-  }, [issue])
-
-  let content
+  let content;
 
   const backToIssueListButton = (
     <button className="pure-button" onClick={showIssuesList}>
       Back to Issues List
     </button>
-  )
-
-  if (commentsError) {
-    return (
-      <div className="issue-detail--error">
-        {backToIssueListButton}
-        <h1>There was a problem loading issue #{issueId}</h1>
-        <p>{commentsError.toString()}</p>
-      </div>
-    )
-  }
+  );
 
   if (issue === null) {
     content = (
@@ -78,9 +71,25 @@ export const IssueDetailsPage = ({
         {backToIssueListButton}
         <p>Loading issue #{issueId}...</p>
       </div>
-    )
+    );
   } else {
-    let renderedComments = <IssueComments issue={issue} comments={comments} />
+    let renderedComments;
+    if (comments) {
+      renderedComments = <IssueComments issue={issue} comments={comments} />;
+    } else if (commentsLoading) {
+      renderedComments = (
+        <div className="issue-detail--loading">
+          <p>Loading comments...</p>
+        </div>
+      );
+    } else if (commentsError) {
+      renderedComments = (
+        <div className="issue-detail--error">
+          <h1>Could not load comments for issue #{issueId}</h1>
+          <p>{commentsError.toString()}</p>
+        </div>
+      );
+    }
 
     content = (
       <div className={classnames('issueDetailsPage', styles.issueDetailsPage)}>
@@ -98,8 +107,8 @@ export const IssueDetailsPage = ({
         <hr className={styles.divider} />
         <ul>{renderedComments}</ul>
       </div>
-    )
+    );
   }
 
-  return <div>{content}</div>
-}
+  return <div>{content}</div>;
+};
