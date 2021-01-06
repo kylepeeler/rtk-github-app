@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/rtk-github-app/static/css/main.d1cda262.chunk.css",
-    "main.js": "/rtk-github-app/static/js/main.07e45c72.chunk.js",
-    "main.js.map": "/rtk-github-app/static/js/main.07e45c72.chunk.js.map",
+    "main.js": "/rtk-github-app/static/js/main.d6ac911d.chunk.js",
+    "main.js.map": "/rtk-github-app/static/js/main.d6ac911d.chunk.js.map",
     "runtime-main.js": "/rtk-github-app/static/js/runtime-main.0717b83d.js",
     "runtime-main.js.map": "/rtk-github-app/static/js/runtime-main.0717b83d.js.map",
-    "static/js/2.86619eef.chunk.js": "/rtk-github-app/static/js/2.86619eef.chunk.js",
-    "static/js/2.86619eef.chunk.js.map": "/rtk-github-app/static/js/2.86619eef.chunk.js.map",
+    "static/js/2.7fa229da.chunk.js": "/rtk-github-app/static/js/2.7fa229da.chunk.js",
+    "static/js/2.7fa229da.chunk.js.map": "/rtk-github-app/static/js/2.7fa229da.chunk.js.map",
     "index.html": "/rtk-github-app/index.html",
-    "precache-manifest.e74726b9020bb75fc3db3af19d7874db.js": "/rtk-github-app/precache-manifest.e74726b9020bb75fc3db3af19d7874db.js",
+    "precache-manifest.7d3549d26948f3847d1e461ec19e36a8.js": "/rtk-github-app/precache-manifest.7d3549d26948f3847d1e461ec19e36a8.js",
     "service-worker.js": "/rtk-github-app/service-worker.js",
     "static/css/main.d1cda262.chunk.css.map": "/rtk-github-app/static/css/main.d1cda262.chunk.css.map",
-    "static/js/2.86619eef.chunk.js.LICENSE.txt": "/rtk-github-app/static/js/2.86619eef.chunk.js.LICENSE.txt"
+    "static/js/2.7fa229da.chunk.js.LICENSE.txt": "/rtk-github-app/static/js/2.7fa229da.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0717b83d.js",
-    "static/js/2.86619eef.chunk.js",
+    "static/js/2.7fa229da.chunk.js",
     "static/css/main.d1cda262.chunk.css",
-    "static/js/main.07e45c72.chunk.js"
+    "static/js/main.d6ac911d.chunk.js"
   ]
 }
